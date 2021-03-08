@@ -1,0 +1,384 @@
+/* ---------- ---------- ----------
+    Reset
+---------- ---------- ---------- */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+/* ---------- ---------- ----------
+    Root
+---------- ---------- ---------- */
+  :root {
+    /* Font */
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+
+    /* Colors */
+    --main: #4caf50;
+    --dark: #1e1e1e;
+    --medium: #666666;
+    --light: #f7f7f7;
+    --white: #ffffff;
+    --red: #d32f2f;
+
+    color: var(--dark);
+  }
+
+/* ---------- ---------- ----------
+    Layout
+---------- ---------- ---------- */
+  body {
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 4rem) 1fr 2rem;
+    grid-template-areas:
+      "topbar"
+      "action-bar"
+      "contacts"
+      "copyrights";
+    gap: 1rem;
+  }
+  #topbar {
+    grid-area: topbar;
+  }
+  #action-bar {
+    grid-area: action-bar;
+  }
+  #contacts {
+    grid-area: contacts;
+  }
+  #copyrights {
+    grid-area: copyrights;
+  }
+
+  /* Layout Edges Space */
+  .edges-space {
+    padding: 0 1rem;
+  }
+
+/* ---------- ---------- ----------
+    General
+---------- ---------- ---------- */
+
+  .material-icons{
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  /* Overlay */
+  .overlay {
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    place-items: center;
+
+    display: none;
+  }
+  .overlay > .container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  /* Overlay Card */
+  .overlay-card {
+    width: 90%;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: var(--white);
+
+    display: grid;
+    grid-template-rows: 3rem 1fr 6rem;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* Overlay Card Header */
+  .overlay-card header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  /* Overlay Card Body */
+  .card-body {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  /* Overlay Card Footer */
+  .overlay-card > footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-self: end;
+  }
+
+  /* Buttons */
+  button {
+    outline: none;
+    border: 1px solid;
+    border-radius: 2rem;
+
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    display: flex;
+    place-items: center;
+    gap: 1rem;
+  }
+  .close-button {
+    padding: .5rem;
+  }
+  
+
+  /* Green */
+  .green {
+    border-color: var(--main);
+    background: var(--white);
+    color: var(--main);
+  }
+  .green:hover {
+    background: var(--main);
+    color: var(--white);
+  }
+
+  /* Red */
+  .red {
+    border-color: var(--red);
+    background: var(--white);
+    color: var(--red);
+  }
+  .red:hover {
+    background: var(--red);
+    color: var(--white);
+  }
+
+  /* Links */
+  a ,
+  a:visited{
+    color: var(--medium);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--main);
+    text-decoration: underline;
+  }
+
+  input{
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border: 1px solid var(--light);
+    border-radius: 4rem;
+    background: var(--light);
+    color: var(--medium);
+    font-size: 1rem;
+    line-height: 1.5rem;
+  
+  }
+  input:hover,
+  input:focus{
+    background: transparent;
+  }
+
+  .show {
+    display: block !important;
+  }
+
+/* ---------- ---------- ----------
+    Topbar
+---------- ---------- ---------- */
+  #topbar {
+    display: flex;
+    box-shadow: 1px 1px 1rem var(--light);
+  }
+
+  /* Brand */
+  #topbar > #brand {
+    color: var(--main);
+    font-size: 1.5rem;
+
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+
+/* ---------- ---------- ----------
+    Action Bar
+---------- ---------- ---------- */
+  #action-bar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    place-items: center;
+  }
+
+  
+  /* Search Bar*/
+  #action-bar > #search-bar {
+    display: flex;
+    place-items: center;
+  }
+  #action-bar > #search-bar > i{
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 2rem 0 0 2rem;
+    background: var(--light);
+    color: var(--medium);
+    cursor: pointer;
+  }
+  #action-bar > #search-bar > i:hover{
+    color: var(--dark);
+  }
+  #action-bar > #search-bar > i:active{
+    color: var(--main);
+  }
+  #action-bar > #search-bar > input{
+    border-radius: 0 2rem 2rem 0;
+  }
+
+/* ---------- ---------- ----------
+    Contacts
+---------- ---------- ---------- */
+  #contacts > table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--medium);
+    text-align: left;
+  }
+  #contacts > table > thead {
+    color: var(--dark);
+    border-bottom: 3px solid var(--light);
+  }
+  #contacts > table th,
+  #contacts > table td{
+    padding:.5rem 1rem;
+  }
+  #contacts > table img {
+    width: 2rem;
+    border-radius: 50%;
+  }
+  #contacts > table > tbody tr:hover {
+    background: var(--light);
+    color: var(--dark);
+    cursor: pointer;
+  }
+
+  /* Phones Column */
+  .phones {
+    display: none;
+  }
+
+  /* Emails Column  */
+  .emails {
+    display: none;
+  }
+
+  /* Addresses Column  */
+  .addresses {
+    display: none;
+  }
+
+
+  /* Contact Info */
+  #contact-info .card-body{
+    grid-template-columns: auto 1fr;
+    justify-content: start;
+    align-items: center;
+    color: var(--medium);
+  }
+  #contact-info .card-body > img{
+    width: 8rem;
+  }
+
+
+/* ---------- ---------- ----------
+    Copyrights
+---------- ---------- ---------- */
+#copyrights {
+  text-align: center;
+  color: var(--main);
+}
+
+/* ---------- ---------- ----------
+    Size = 667px
+---------- ---------- ---------- */
+@media screen and (min-width: 667px) {
+
+  #action-bar > #search-bar{
+    width: 75%;
+  }
+
+  .phones {
+    display: table-cell;
+  }
+
+  .overlay-card {
+    width: 30rem;
+  }
+}
+
+/* ---------- ---------- ----------
+    Size = 768px
+    ---------- ---------- ---------- */
+@media screen and (min-width: 768px) {
+  .edges-space {
+    padding: 0 2rem;
+  }
+
+  .emails {
+    display: table-cell;
+  }
+}
+
+/* ---------- ---------- ----------
+    Size = 1024px
+---------- ---------- ---------- */
+@media screen and (min-width: 1024px) {
+  .edges-space {
+    padding: 0 5%;
+  }
+
+  .addresses {
+    display: table-cell;
+  }
+}
+
+/* ---------- ---------- ----------
+    Size = 1280px
+---------- ---------- ---------- */
+@media screen and (min-width: 1280px) {
+  .edges-space {
+    padding: 0 15%;
+  }
+}
+
+/* ---------- ---------- ----------
+    Size = 1440px
+---------- ---------- ---------- */
+@media screen and (min-width: 1440px) {
+  .edges-space {
+    padding: 0 20%;
+  }
+}
