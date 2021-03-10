@@ -135,8 +135,8 @@
   /* Buttons */
   button {
     outline: none;
-    border: 1px solid;
-    border-radius: 2rem;
+    border: none;
+    border-radius: 4rem;
 
     padding: 0.5rem 2rem;
     cursor: pointer;
@@ -154,7 +154,6 @@
 
   /* Green */
   .green {
-    border-color: var(--main);
     background: var(--white);
     color: var(--main);
   }
@@ -165,7 +164,6 @@
 
   /* Red */
   .red {
-    border-color: var(--red);
     background: var(--white);
     color: var(--red);
   }

@@ -29,7 +29,6 @@
                 contactFormAddress.value    = '';
     }
 
-
     // Toggle show
     function toggleShow(x){
         return x.classList.toggle('show');
@@ -50,13 +49,12 @@
         );
     }
 
-
-    // Sort contacts from a to z
+    // Sort contacts names a to z
     function sortContactsNamesATZ(){
         return contactsList.sort((a,b)=> (a.contactName > b.contactName ? 1 : -1));
     }
 
-    // Sort contacts from Z to a
+    // Sort contacts names Z to a
     function sortContactsNamesZTA(){
         return contactsList.sort((a,b)=> (a.contactName > b.contactName ? -1 : 1));
     }
@@ -64,7 +62,7 @@
 
   
 
-    // Create contact info
+    // Desplay contacts
     function createContactInfo(){
 
         let infoRow;
@@ -91,13 +89,13 @@
 
 // Events
 
-    // Open Contact Form
+    // Open new contact form
     newButton.onclick = function(){
         toggleShow(newContactForm);
         contactFormName.focus();
     }
 
-    // Close New Contact Form
+    // Close new contact form
     closeNewContactForm.onclick = function(){
         toggleShow(newContactForm);
     }
@@ -114,7 +112,7 @@
         toggleShow(contactInfo);
     }
 
-// Create new contact
+    // Save new contact
     saveButton.addEventListener('click', () =>{
 
         // If name field is empty
@@ -139,7 +137,8 @@
     });
 
 
-
+// Desplay contacts 
+// window.onload = ;
 
 
 
