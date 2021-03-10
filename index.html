@@ -25,10 +25,8 @@
 
         <!-- Brand -->
         <h1 id="brand">
-            <i class="material-icons"> contacts </i>
-            Contacts
+            &phone; Contacts
         </h1>
-
     </header>
 
     <!-- ---------- Action Bar ---------- -->
@@ -66,15 +64,21 @@
 
                     <!-- Card body -->
                     <form id="contact-form" class="card-body">
-                        <input type="text" placeholder="Full name" />
-                        <input type="tel" placeholder="Phone number" minlength="10" maxlength="14" />
-                        <input type="email" placeholder="Email address" />
-                        <input type="text" placeholder="Home address" />
+                        <input id="contact-form-ID" type="text" hidden value="">
+                        <input id="contact-form-photo" type="file" hidden>
+                        <label for="contact-form-photo">
+                            <i class="material-icons"> add_a_photo</i>
+                        </label>
+                        <input id="contact-form-name" type="text" placeholder="Full name" autofocus required />
+                        <input id="contact-form-phone" type="tel" placeholder="Phone number" minlength="10"
+                            maxlength="14" />
+                        <input id="contact-form-email" type="email" placeholder="Email address" />
+                        <input id="contact-form-address" type="text" placeholder="Home address" />
                     </form>
 
                     <!-- Card footer -->
                     <footer>
-                        <button id="save-button" class="green">
+                        <button id="save-button" class="green" for="contact-form" type="submit">
                             <i class="material-icons">
                                 save
                             </i>
@@ -109,7 +113,7 @@
                         Name
                     </th>
                     <th class="phones">
-                        <i class="material-icons"> phone </i>
+                        <i class="material-icons"> phone_enabled </i>
                         Phone
                     </th>
                     <th class="emails">
@@ -204,6 +208,66 @@
                                 edit
                             </i>
                             Edit
+                        </button>
+
+                    </footer>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ---------- Contact Edit ---------- -->
+        <div id="contact-edit" class="overlay ">
+            <div class="container">
+
+
+                <div class="overlay-card">
+                    <!-- Card header -->
+                    <header>
+                        <button class="material-icons close-button red">
+                            close
+                        </button>
+                    </header>
+
+                    <!-- Card body -->
+                    <section class="card-body">
+                        <img class="contact-photo" src="images/mahmoud.jpg" alt="">
+
+                        <h2 class="contact-name">
+                            Mahmoud Farag
+                        </h2>
+
+                        <i class="material-icons contact-phone">
+                            phone
+                        </i>
+                        <p class="contact-phone">
+                            +380665753275
+                        </p>
+
+                        <i class="material-icons">
+                            email
+                        </i>
+                        <p class="contact-email">
+                            mahmoud.f.farag@gmaol.com
+                        </p>
+
+                        <i class="material-icons">
+                            place
+                        </i>
+                        <p class="contact-address">
+                            Mykolaiv, Ukraine
+                        </p>
+                    </section>
+
+                    <!-- Card footer -->
+                    <footer>
+
+
+                        <button id="save-button" class=" green">
+                            <i class="material-icons">
+                                save
+                            </i>
+                            save
                         </button>
 
                     </footer>
