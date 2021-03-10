@@ -32,7 +32,7 @@
 
     // Toggle show
     function toggleShow(x){
-        return newContactForm.classList.toggle('show');
+        return x.classList.toggle('show');
     }
 
     // Add new contact
@@ -92,22 +92,27 @@
 // Events
 
     // Open Contact Form
-    newButton.addEventListener('click', toggleShow);
+    newButton.onclick = function(){
+        toggleShow(newContactForm);
+        contactFormName.focus();
+    }
 
     // Close New Contact Form
-    closeNewContactForm.addEventListener('click', toggleShow);
+    closeNewContactForm.onclick = function(){
+        toggleShow(newContactForm);
+    }
 
     // Open contact info
     contactRows.forEach(row => {
-        row.addEventListener("click", () =>{
-            contactInfo.classList.toggle('show')
+        row.addEventListener("click", function(){
+            toggleShow(contactInfo);
         })
     });
 
     // Close contact info
-    closeContactInfo.addEventListener('click', () => {
-        contactInfo.classList.toggle('show');
-    } );
+    closeContactInfo.onclick = function(){
+        toggleShow(contactInfo);
+    }
 
 // Create new contact
     saveButton.addEventListener('click', () =>{
