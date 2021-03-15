@@ -84,7 +84,7 @@
 
   /* Layout container */
   .container {
-    width: calc(100% - 1rem);
+    width: calc(100% - 3rem);
     padding: 0 1rem;
     background: var(--white);
     border-radius: .5rem;
@@ -120,7 +120,7 @@
 
     display: grid;
     grid-template-rows: auto 1fr auto;
-    gap: 1rem;
+    gap: 3rem;
   }
 
   /* Overlay Content Header */
@@ -266,11 +266,13 @@
     text-align: left;
   }
   #contacts-list > table > thead {
-    border-bottom: 1px solid var(--medium);
+    border-bottom: 1px solid var(--light);
   }
   #contacts-list th,
   #contacts-list td{
     vertical-align:baseline;
+    padding: 1rem;
+
   }
   #contacts-list .sorting{
     display: inline-grid;
@@ -313,6 +315,9 @@
   #contact-details .overlay-content-body{
     grid-template-columns: auto 1fr;
   }
+  #contact-details .contact-details-ID{
+    visibility: hidden;
+  }
 
 
 /* ---------- ---------- ----------
@@ -342,7 +347,7 @@
     ---------- ---------- ---------- */
 @media screen and (min-width: 768px) {
   .container {
-    width: calc(100% - 2rem);
+    width: calc(100% - 4rem);
 
   }
 
@@ -356,7 +361,7 @@
 ---------- ---------- ---------- */
 @media screen and (min-width: 1024px) {
   .container {
-    width: calc(100% - 5%);
+    width: 960px;
   }
 
   .addresses {
@@ -369,15 +374,6 @@
 ---------- ---------- ---------- */
 @media screen and (min-width: 1280px) {
   .container {
-    width: calc(100% - 15%);
-  }
-}
-
-/* ---------- ---------- ----------
-    Size = 1440px
----------- ---------- ---------- */
-@media screen and (min-width: 1440px) {
-  .container {
-    width: calc(100% - 20%);
+    width: 1024px;
   }
 }

@@ -328,6 +328,9 @@
         });
 
 
+    
+
+
     // Open selected contact details
         trs.forEach(tr => {
 
@@ -341,19 +344,19 @@
                 let selectedContact = e.target.parentElement.children;
                 
                 // Set selected contact info to contact details 
-                contactDetailsID.textContent        = selectedContact[0].textContent;
-                contactDetailsName.textContent      = selectedContact[1].textContent;
-                contactDetailsPhone.textContent     = selectedContact[2].textContent;
-                contactDetailsEmail.textContent     = selectedContact[3].textContent;
-                contactDetailsAddress.textContent   = selectedContact[4].textContent;
+                contactDetailsID.textContent        = selectedContact[0].textContent.trim();
+                contactDetailsName.textContent      = selectedContact[1].textContent.trim();
+                contactDetailsPhone.textContent     = selectedContact[2].textContent.trim();
+                contactDetailsEmail.textContent     = selectedContact[3].textContent.trim();
+                contactDetailsAddress.textContent   = selectedContact[4].textContent.trim();
                 
 
                 // Asign selected contact details info as contact edit form input fileds values
-                contactEditFormID.value             = selectedContact[0].textContent;
-                contactEditFormName.value           = selectedContact[1].textContent;
-                contactEditFormPhone.value          = selectedContact[2].textContent;
-                contactEditFormEmail.value          = selectedContact[3].textContent;
-                contactEditFormAddress.value        = selectedContact[4].textContent;
+                contactEditFormID.value             = selectedContact[0].textContent.trim();
+                contactEditFormName.value           = selectedContact[1].textContent.trim();
+                contactEditFormPhone.value          = selectedContact[2].textContent.trim();
+                contactEditFormEmail.value          = selectedContact[3].textContent.trim();
+                contactEditFormAddress.value        = selectedContact[4].textContent.trim();
 
                 
                 // Update contact 
