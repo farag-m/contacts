@@ -2,26 +2,30 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Address Book</title>
+
 
     <!-- ---------- Fonts ---------- -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet" />
 
+
     <!-- ---------- Icons ---------- -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
+
     <!-- ---------- Styles ---------- -->
     <link rel="stylesheet" href="css/main.css" />
+
 </head>
 
 <body>
 
     <!-- ---------- Topbar ---------- -->
-    <header id="topbar" class="edges-space">
+    <header id="topbar" class="container ">
 
         <!-- Brand -->
         <h1 id="brand">
@@ -30,256 +34,240 @@
     </header>
 
     <!-- ---------- Action Bar ---------- -->
-    <section id="action-bar" class="edges-space">
+    <section id="action-bar" class="container">
 
-        <!-- New Button-->
-        <button id="new-button" class="green">
-            <i class="material-icons">
-                add
-            </i>
-            New
+        <!-- New Contact Button-->
+        <button id="new-contact-button" class="green">
+            &hercon;&nbsp;&nbsp;&nbsp;New
         </button>
 
-        <!-- Search -->
-        <div id="search-bar">
-            <i class="material-icons">
-                search
-            </i>
-            <input type="search" placeholder="Search" />
-        </div>
+        <!-- Search Bar-->
+        <input id="search-bar" type="search" placeholder="Search" />
 
 
         <!-- New contact form -->
-        <div id="new-contact-form" class="overlay ">
-            <div class="container">
+        <div id="new-contact-form" class="overlay">
 
+            <div class="overlay-content">
 
-                <div class="overlay-card">
-                    <!-- Card header -->
-                    <header>
-                        <button form="contact-form" type="reset" class="material-icons close-button red">
-                            close
-                        </button>
-                    </header>
+                <!-- Overlay Content header -->
+                <header class="overlay-content-header">
+                    <button class="material-icons close-button red">
+                        close
+                    </button>
+                </header>
 
-                    <!-- Card body -->
-                    <form id="contact-form" class="card-body">
-                        <input id="contact-form-ID" type="text" hidden value="">
-                        <input id="contact-form-photo" type="file" hidden>
-                        <label for="contact-form-photo">
-                            <i class="material-icons"> add_a_photo</i>
-                        </label>
-                        <input id="contact-form-name" type="text" placeholder="Full name" required />
-                        <input id="contact-form-phone" type="tel" placeholder="Phone number" minlength="10"
-                            maxlength="14" />
-                        <input id="contact-form-email" type="email" placeholder="Email address" />
-                        <input id="contact-form-address" type="text" placeholder="Home address" />
-                    </form>
+                <!-- Overlay Content body -->
+                <form class="overlay-content-body">
 
-                    <!-- Card footer -->
-                    <footer>
-                        <button id="save-button" class="green" for="contact-form" type="submit">
-                            <i class="material-icons">
-                                save
-                            </i>
-                            Save
-                        </button>
-                    </footer>
-                </div>
+                    <input id="new-contact-form-ID" type="text" hidden value="">
+
+                    <input id="new-contact-form-name" type="text" placeholder="Full name" required />
+
+                    <input id="new-contact-form-phone" type="tel" placeholder="Phone number" minlength="10"
+                        maxlength="14" />
+
+                    <input id="new-contact-form-email" type="email" placeholder="Email address" />
+
+                    <input id="new-contact-form-address" type="text" placeholder="Home address" />
+
+                </form>
+
+                <!-- Overlay Content footer -->
+                <footer class="overlay-content-footer">
+                    <button id="new-contact-form-save-button" class="green" for="contact-form" type="submit">
+                        <i class="material-icons">
+                            save
+                        </i>
+                        Save
+                    </button>
+                </footer>
 
             </div>
+
         </div>
     </section>
 
-    <!-- ---------- Contacts ---------- -->
-    <main id="contacts" class="edges-space">
+    <!-- ---------- Contacts List ---------- -->
+    <main id="contacts-list" class="container">
+
         <table>
             <!-- columns -->
-            <colgroup>
+            <!-- <colgroup>
                 <col class="photos" span="1" />
                 <col class="names" span="1" />
                 <col class="emails" span="1" />
                 <col class="phones" span="1" />
                 <col class="addresses" span="1" />
-            </colgroup>
+            </colgroup> -->
 
+            <!-- Table Head -->
             <thead>
                 <tr>
-                    <th class="photos">
-                        <i class="material-icons"> account_circle </i>
+                    <th class="ids">
+                        <i class="material-icons"> tag </i>
+                        ID
                     </th>
                     <th class="names">
                         <i class="material-icons"> person </i>
                         Name
+
+                        <div class="sorting">
+                            <i class="material-icons up"> expand_less </i>
+                            <i class="material-icons down"> expand_more </i>
+                        </div>
                     </th>
                     <th class="phones">
                         <i class="material-icons"> phone_enabled </i>
                         Phone
+
+                        <div class="sorting">
+                            <i class="material-icons up"> expand_less </i>
+                            <i class="material-icons down"> expand_more </i>
+                        </div>
                     </th>
                     <th class="emails">
                         <i class="material-icons"> email </i>
                         Email
+
+                        <div class="sorting">
+                            <i class="material-icons up"> expand_less </i>
+                            <i class="material-icons down"> expand_more </i>
+                        </div>
                     </th>
                     <th class="addresses">
                         <i class="material-icons"> location_on </i>
                         Address
+
+                        <div class="sorting">
+                            <i class="material-icons up"> expand_less </i>
+                            <i class="material-icons down"> expand_more </i>
+                        </div>
                     </th>
                 </tr>
             </thead>
 
-            <tbody>
-                <tr>
-                    <td class="photos">
-                        <img src="images/mahmoud.jpg" alt="" />
-                    </td>
-                    <td class="names">Mahamoud Farag</td>
-                    <td class="phones">+380665753275</td>
-                    <td class="emails">mahmoud.f.farag@gmail.com</td>
-                    <td class="addresses">Mykolaiv, Ukraine</td>
-                </tr>
+            <!-- Table Body -->
+            <tbody></tbody>
 
-                <tr>
-                    <td class="photos">
-                        <img src="images/mahmoud.jpg" alt="" />
-                    </td>
-                    <td class="names">Mahamoud Farag</td>
-                    <td class="phones">+380665753275</td>
-                    <td class="emails">mahmoud.f.farag@gmail.com</td>
-                    <td class="addresses">Mykolaiv, Ukraine</td>
-                </tr>
-            </tbody>
         </table>
 
-        <!-- ---------- Contact Info ---------- -->
-        <div id="contact-info" class="overlay ">
-            <div class="container">
+        <!-- ---------- Contact Details---------- -->
+        <div id="contact-details" class="overlay">
 
+            <div class="overlay-content">
 
-                <div class="overlay-card">
-                    <!-- Card header -->
-                    <header>
-                        <button class="material-icons close-button red">
-                            close
-                        </button>
-                    </header>
+                <!-- Overlay Content header -->
+                <header class="overlay-content-header">
+                    <button class="material-icons close-button red">
+                        close
+                    </button>
+                </header>
 
-                    <!-- Card body -->
-                    <section class="card-body">
-                        <img class="contact-photo" src="images/mahmoud.jpg" alt="">
+                <!-- Overlay Content body -->
+                <section class="overlay-content-body">
 
-                        <h2 class="contact-name">
-                            Mahmoud Farag
-                        </h2>
+                    <span class="contact-details-ID">
 
-                        <i class="material-icons contact-phone">
-                            phone
-                        </i>
-                        <p class="contact-phone">
-                            +380665753275
-                        </p>
+                    </span>
+                    <h2 class="contact-details-name">
 
+                    </h2>
+
+                    <i class="material-icons contact-phone">
+                        phone
+                    </i>
+                    <p class="contact-details-phone">
+
+                    </p>
+
+                    <i class="material-icons">
+                        email
+                    </i>
+                    <p class="contact-details-email">
+
+                    </p>
+
+                    <i class="material-icons">
+                        place
+                    </i>
+                    <p class="contact-details-address">
+
+                    </p>
+
+                </section>
+
+                <!-- Overlay Content footer -->
+                <footer class="overlay-content-footer">
+
+                    <button id="contact-details-delete-button" class=" red">
                         <i class="material-icons">
-                            email
-                        </i>
-                        <p class="contact-email">
-                            mahmoud.f.farag@gmaol.com
-                        </p>
-
-                        <i class="material-icons">
-                            place
-                        </i>
-                        <p class="contact-address">
-                            Mykolaiv, Ukraine
-                        </p>
-                    </section>
-
-                    <!-- Card footer -->
-                    <footer>
-
-                        <button id="delete-button" class=" red">
-                            <i class="material-icons">
-                                delete
-                            </i>
                             delete
-                        </button>
+                        </i>
+                        delete
+                    </button>
 
-                        <button id="edit-button" class=" green">
-                            <i class="material-icons">
-                                edit
-                            </i>
-                            Edit
-                        </button>
+                    <button id="contact-details-edit-button" class=" green">
+                        <i class="material-icons">
+                            edit
+                        </i>
+                        Edit
+                    </button>
 
-                    </footer>
-                </div>
-
+                </footer>
             </div>
+
         </div>
 
-        <!-- ---------- Contact Edit ---------- -->
-        <div id="contact-edit" class="overlay ">
-            <div class="container">
+
+        <!-- ---------- Contact Edit Form ---------- -->
+        <div id="contact-edit-form" class="overlay show">
 
 
-                <div class="overlay-card">
-                    <!-- Card header -->
-                    <header>
-                        <button class="material-icons close-button red">
-                            close
-                        </button>
-                    </header>
+            <div class="overlay-content">
 
-                    <!-- Card body -->
-                    <section class="card-body">
-                        <img class="contact-photo" src="images/mahmoud.jpg" alt="">
+                <!-- Overlay Content header -->
+                <header class="overlay-content-header">
+                    <button class="material-icons close-button red">
+                        close
+                    </button>
+                </header>
 
-                        <h2 class="contact-name">
-                            Mahmoud Farag
-                        </h2>
+                <!-- Overlay Content body -->
+                <form class="overlay-content-body">
 
-                        <i class="material-icons contact-phone">
-                            phone
-                        </i>
-                        <p class="contact-phone">
-                            +380665753275
-                        </p>
+                    <input id="contact-edit-form-ID" type="text" hidden value="">
 
+                    <input id="contact-edit-form-name" type="text" />
+
+                    <input id="contact-edit-form-phone" type="tel" />
+
+                    <input id="contact-edit-form-email" type="email" />
+
+                    <input id="contact-edit-form-address" type="text" />
+
+                </form>
+
+                <!-- Overlay Content footer -->
+                <footer class="overlay-content-footer">
+
+                    <button id="contact-edit-form-update-button" class=" green">
                         <i class="material-icons">
-                            email
+                            autorenew
                         </i>
-                        <p class="contact-email">
-                            mahmoud.f.farag@gmaol.com
-                        </p>
+                        Update
+                    </button>
 
-                        <i class="material-icons">
-                            place
-                        </i>
-                        <p class="contact-address">
-                            Mykolaiv, Ukraine
-                        </p>
-                    </section>
-
-                    <!-- Card footer -->
-                    <footer>
-
-
-                        <button id="save-button" class=" green">
-                            <i class="material-icons">
-                                save
-                            </i>
-                            save
-                        </button>
-
-                    </footer>
-                </div>
+                </footer>
 
             </div>
+
         </div>
 
     </main>
 
     <!-- ---------- Copyrights ---------- -->
-    <footer id="copyrights" class="edges-space">
+    <footer id="copyrights" class="container">
         <a href="https://mahmoudffarag.github.io/mahmoudffarag/" target="_blank">
             Mahmoud Farag
         </a>

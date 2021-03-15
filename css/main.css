@@ -27,7 +27,19 @@
     --white: #ffffff;
     --red: #d32f2f;
 
-    color: var(--dark);
+    color: var(--medium);
+  }
+
+  /* ---------- ---------- ----------
+    Material Icons
+  ---------- ---------- ---------- */
+  .material-icons{
+    font-family: 'Material Icons';
+    font-weight: 400;
+    font-size: 1.5rem;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
   }
 
 /* ---------- ---------- ----------
@@ -37,15 +49,18 @@
     width: 100vw;
     height: 100vh;
 
+    background: var(--light);
+
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 4rem) 1fr 2rem;
+    grid-template-rows: repeat(2, 4rem) 1fr 4rem;
     grid-template-areas:
       "topbar"
       "action-bar"
-      "contacts"
+      "contacts-list"
       "copyrights";
     gap: 1rem;
+    justify-items: center;
   }
   #topbar {
     grid-area: topbar;
@@ -53,29 +68,31 @@
   #action-bar {
     grid-area: action-bar;
   }
-  #contacts {
-    grid-area: contacts;
+  #contacts-list {
+    grid-area: contacts-list;
   }
   #copyrights {
     grid-area: copyrights;
   }
+  #topbar,
+  #action-bar,
+  #copyrights{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-  /* Layout Edges Space */
-  .edges-space {
+  /* Layout container */
+  .container {
+    width: calc(100% - 1rem);
     padding: 0 1rem;
+    background: var(--white);
+    border-radius: .5rem;
   }
 
 /* ---------- ---------- ----------
     General
 ---------- ---------- ---------- */
-
-  .material-icons{
-    font-size: 1.5rem;
-    line-height: 1;
-    font-weight: 400;
-    text-align: center;
-    vertical-align: middle;
-  }
 
   /* Overlay */
   .overlay {
@@ -92,55 +109,49 @@
 
     display: none;
   }
-  .overlay > .container{
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-  }
 
-  /* Overlay Card */
-  .overlay-card {
+  /* Overlay Content */
+  .overlay-content {
     width: 90%;
+    max-width: 25rem;
     padding: 1rem;
     border-radius: 1rem;
     background: var(--white);
 
     display: grid;
-    grid-template-rows: 3rem 1fr 6rem;
+    grid-template-rows: auto 1fr auto;
     gap: 1rem;
-    align-items: center;
   }
 
-  /* Overlay Card Header */
-  .overlay-card header {
+  /* Overlay Content Header */
+  .overlay-content > .overlay-content-header {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
   }
   
-  /* Overlay Card Body */
-  .card-body {
+  /* Overlay Content Body */
+  .overlay-content > .overlay-content-body {
     display: grid;
+    align-items: center;
     gap: 1rem;
   }
   
-  /* Overlay Card Footer */
-  .overlay-card > footer {
+  /* Overlay Content Footer */
+  .overlay-content > .overlay-content-footer {
     display: flex;
     justify-content: space-evenly;
-    align-self: end;
   }
 
   /* Buttons */
   button {
     outline: none;
     border: none;
-    border-radius: 4rem;
+    border-radius: .5rem;
 
     padding: 0.5rem 2rem;
     cursor: pointer;
 
+    color: var(--medium);
     font-size: 1rem;
 
     display: flex;
@@ -155,7 +166,6 @@
   /* Green */
   .green {
     background: var(--white);
-    color: var(--main);
   }
   .green:hover {
     background: var(--main);
@@ -165,7 +175,6 @@
   /* Red */
   .red {
     background: var(--white);
-    color: var(--red);
   }
   .red:hover {
     background: var(--red);
@@ -184,11 +193,11 @@
   }
 
   input {
-    width: 100%;
-    padding: 1rem;
     outline: none;
+    width: 100%;
+    padding: .5rem 1rem;
     border: 1px solid var(--light);
-    border-radius: 4rem;
+    border-radius: .5rem;
     background: var(--light);
     color: var(--medium);
     font-size: 1rem;
@@ -210,7 +219,7 @@
   }
 
   .show {
-    display: block !important;
+    display: grid !important;
   }
 
   .shake{
@@ -234,74 +243,52 @@
 /* ---------- ---------- ----------
     Topbar
 ---------- ---------- ---------- */
-  #topbar {
-    display: flex;
-    box-shadow: 1px 1px 1rem var(--light);
-    align-items: center;
-  }
-
   /* Brand */
   #topbar > #brand {
     color: var(--main);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
 
 /* ---------- ---------- ----------
     Action Bar
 ---------- ---------- ---------- */
-  #action-bar {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    place-items: center;
+  #action-bar{
+    justify-content: space-between;
   }
-
-  
-  /* Search Bar*/
-  #action-bar > #search-bar {
-    display: flex;
-    place-items: center;
-  }
-  #action-bar > #search-bar > i{
-    padding: 1rem;
-    border: 1px solid transparent;
-    border-radius: 2rem 0 0 2rem;
-    background: var(--light);
-    color: var(--medium);
-    cursor: pointer;
-  }
-  #action-bar > #search-bar > i:hover{
-    color: var(--dark);
-  }
-  #action-bar > #search-bar > i:active{
-    color: var(--main);
-  }
-  #action-bar > #search-bar > input{
-    border-radius: 0 2rem 2rem 0;
-  }
-
+    
 /* ---------- ---------- ----------
-    Contacts
+    Contacts List
 ---------- ---------- ---------- */
-  #contacts > table {
+  #contacts-list > table {
     width: 100%;
     border-collapse:collapse;
-    color: var(--medium);
     text-align: left;
   }
-  #contacts > table > thead {
-    color: var(--dark);
-    border-bottom: 3px solid var(--light);
+  #contacts-list > table > thead {
+    border-bottom: 1px solid var(--medium);
   }
-  #contacts > table th,
-  #contacts > table td{
-    padding:.5rem 1rem;
+  #contacts-list th,
+  #contacts-list td{
+    vertical-align:baseline;
   }
-  #contacts > table img {
-    width: 2rem;
-    border-radius: 50%;
+  #contacts-list .sorting{
+    display: inline-grid;
+    float: right;
   }
-  #contacts > table > tbody tr:hover {
+  #contacts-list .sorting > i{
+    font-size: 1rem;
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+  #contacts-list .sorting > i:hover{
+    background: var(--medium);
+    color: var(--white);
+  }
+  #contacts-list .ids{
+    font-weight: 700;
+  }
+  #contacts-list > table > tbody tr:hover {
     background: var(--light);
     color: var(--dark);
     cursor: pointer;
@@ -322,15 +309,9 @@
     display: none;
   }
 
-  /* Contact Info */
-  #contact-info .card-body{
+  /* Contact Details */
+  #contact-details .overlay-content-body{
     grid-template-columns: auto 1fr;
-    justify-content: start;
-    align-items: center;
-    color: var(--medium);
-  }
-  #contact-info .card-body > img{
-    width: 8rem;
   }
 
 
@@ -338,8 +319,7 @@
     Copyrights
 ---------- ---------- ---------- */
 #copyrights {
-  text-align: center;
-  color: var(--main);
+  justify-content: center;
 }
 
 /* ---------- ---------- ----------
@@ -355,17 +335,15 @@
     display: table-cell;
   }
 
-  .overlay-card {
-    width: 30rem;
-  }
 }
 
 /* ---------- ---------- ----------
     Size = 768px
     ---------- ---------- ---------- */
 @media screen and (min-width: 768px) {
-  .edges-space {
-    padding: 0 2rem;
+  .container {
+    width: calc(100% - 2rem);
+
   }
 
   .emails {
@@ -377,8 +355,8 @@
     Size = 1024px
 ---------- ---------- ---------- */
 @media screen and (min-width: 1024px) {
-  .edges-space {
-    padding: 0 5%;
+  .container {
+    width: calc(100% - 5%);
   }
 
   .addresses {
@@ -390,8 +368,8 @@
     Size = 1280px
 ---------- ---------- ---------- */
 @media screen and (min-width: 1280px) {
-  .edges-space {
-    padding: 0 15%;
+  .container {
+    width: calc(100% - 15%);
   }
 }
 
@@ -399,7 +377,7 @@
     Size = 1440px
 ---------- ---------- ---------- */
 @media screen and (min-width: 1440px) {
-  .edges-space {
-    padding: 0 20%;
+  .container {
+    width: calc(100% - 20%);
   }
 }
