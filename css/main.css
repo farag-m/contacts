@@ -225,6 +225,9 @@
   .shake{
     animation: shake-effect 0.5s;
   }
+  #contact-details-delete-button:hover{
+    animation: shake-effect 0.5s;
+  }
 
   @keyframes shake-effect {
     0% { transform: translate(1px, 1px) rotate(0deg); }

@@ -361,23 +361,56 @@
                 
                 // Update contact 
                 contactEditFormUpdateButton.addEventListener('click', function(){
+                    let tr = e.target.parentElement;
+                    let id = tr.children[0].textContent.trim();
 
+                    for(let i = 0; i < contactsList.length; i++){
+                        let contactsItem = contactsList[i].contactID;
+
+                        if(contactsItem == id){
+
+                            // Update contacts list
+                            contactsList[i].contactName     = contactEditFormName.value;
+                            contactsList[i].contactPhone    = contactEditFormPhone.value;
+                            contactsList[i].contactEmail    = contactEditFormEmail.value;
+                            contactsList[i].contactAddress  = contactEditFormAddress.value;
+                        }
+
+                        // Update local storage
+                        localStorage.setItem("contacts", JSON.stringify(contactsList));
+
+                        // Display contacts
+                        displayContacts();
+
+                        // Close contact edit form
+                        toggleShow(contactEditForm);
+                    }
                 });
                
 
-
-
-
-
                 // Delete Contact
                 contactDetailsDeleteButton.addEventListener('click', function(){
-                    let contact = e.target.parentElement,
-                        id      = contact.children[0].textContent;
+                    let tr = e.target.parentElement;
+                    let id = tr.children[0].textContent.trim();
 
                     for(let i = 0; i < contactsList.length; i++){
+                        let contactsItem = contactsList[i].contactID;
+
+                        if(contactsItem == id){
+
+                            contactsList.splice(i,1);
+                        }
+
+                        // Update local storage
+                        localStorage.setItem("contacts", JSON.stringify(contactsList));
+                        
+                        // Close contact details
+                        toggleShow(contactDetails);
+
+                        // Display contacts
+                        displayContacts();
 
                     }
-                    
                 });
                 
             });
