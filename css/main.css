@@ -20,12 +20,12 @@
     line-height: 1.6;
 
     /* Colors */
-    --main: #4caf50;
-    --dark: #1e1e1e;
-    --medium: #666666;
-    --light: #c1f0f0;
+    --main: #003049;
+    --dark: #222;
+    --medium: #888;
+    --light: #eee;
     --white: #ffffff;
-    --red: #d32f2f;
+    --red: #d62828;
 
     color: var(--medium);
   }
